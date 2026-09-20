@@ -1,0 +1,51 @@
+#include <iostream>
+#include <cmath>
+#include <cstdlib>
+#include <ctime>
+#include <iomanip>
+using namespace std;
+
+
+double randomDouble(double min, double max) {
+    return min + (max - min) * (rand() / (double)RAND_MAX);
+}
+
+int main() {
+    srand(time(0));  
+    double a, b, c;
+
+    
+    do {
+        a = round(randomDouble(2, 15) * 100) / 100;  
+        b = round(randomDouble(2, 15) * 100) / 100;
+        c = round(randomDouble(2, 15) * 100) / 100;
+    } while (a + b <= c || a + c <= b || b + c <= a);
+
+    
+    double s = (a + b + c) / 2;
+    double area = sqrt(s * (s - a) * (s - b) * (s - c));
+
+   
+    cout << fixed << setprecision(2);
+    cout << "随机三角形三边：" << endl;
+    cout << "a = " << a << endl;
+    cout << "b = " << b << endl;
+    cout << "c = " << c << endl;
+
+   
+    double userArea;
+    cout << "\n请输入你计算的面积：";
+    cin >> userArea;
+
+    
+    cout << setprecision(4);
+    cout << "标准面积 = " << area << endl;
+
+    if (fabs(userArea - area) < 0.1) {
+        cout << "正确！" << endl;
+    } else {
+        cout << "错误！正确答案是 " << area << endl;
+    }
+
+    return 0;
+}
