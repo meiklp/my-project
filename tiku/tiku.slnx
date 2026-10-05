@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="tiku/tiku.vcxproj" Id="f2d3a141-faa8-4d1e-a496-f4c1e2e7c8fe" />
+</Solution>
